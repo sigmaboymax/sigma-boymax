@@ -13,7 +13,6 @@
             font-family: 'Courier New', monospace;
         }
 
-        
         .custom-cursor {
             position: fixed;
             width: 40px;
@@ -25,7 +24,6 @@
             transform: translate(-50%, -50%);
         }
 
-        
         body:not(.touch-device) {
             cursor: none;
         }
@@ -79,7 +77,6 @@
             display: none !important;
         }
 
-        
         .controls {
             position: fixed;
             bottom: calc(50% - 240px - 10px);
@@ -114,7 +111,6 @@
             border-color: rgba(255, 255, 255, 0.8);
         }
 
-        
         .volume-control {
             display: flex;
             align-items: center;
@@ -149,7 +145,6 @@
             cursor: pointer;
         }
 
-        
         .transparency-control {
             display: flex;
             align-items: center;
@@ -162,7 +157,6 @@
             color: white;
         }
 
-        
         .top-controls {
             position: fixed;
             top: 20px;
@@ -177,7 +171,6 @@
             backdrop-filter: blur(5px);
         }
 
-        
         #profile-block {
             position: fixed;
             top: 50%;
@@ -200,159 +193,11 @@
             pointer-events: auto;
         }
 
-        .profile-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-        }
-
-        .profile-container::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 50%;
-            background: radial-gradient(
-                circle at 10px 10px,
-                var(--primary-color, #CCCCCC) 10%,
-                transparent 15%
-            );
-            animation: orbit 3s linear infinite;
-            z-index: -1;
-            filter: blur(1px);
-            box-shadow: none;
-        }
-
-        .profile-container.fast-orbit::after {
-            animation: fast-orbit 0.5s linear forwards;
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-            pointer-events: auto;
-            opacity: 1 !important;
-        }
-
-        .profile-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .name-and-badges {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        
         @font-face {
             font-family: 'Angel Wish';
             src: url('assets/Angel_wish.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
-        }
-
-        #profile-name {
-            font-family: 'Angel Wish', sans-serif;
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #fff;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
-            opacity: 1 !important;
-        }
-
-        .badge-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .badge-container {
-            position: relative;
-            pointer-events: auto;
-            opacity: 1 !important;
-        }
-
-        .badge-container .tooltip {
-            visibility: hidden;
-            width: 120px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 100;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .badge-container:hover .tooltip {
-            visibility: visible;
-            opacity: 1 !important;
-        }
-
-        .badge-box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2px;
-            border-radius: 15px;
-            display: inline-block;
-        }
-
-        .badge-box-inner {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px;
-            border-radius: 12px;
-            display: flex;
-            gap: 8px;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .badge {
-            width: 22px;
-            height: 22px;
-            transition: transform 0.3s;
-            pointer-events: auto;
-            opacity: 1 !important;
-        }
-
-        .badge:hover {
-            transform: scale(1.2);
-        }
-
-        #profile-bio {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            opacity: 1 !important;
-            min-height: 1.5em; 
-        }
-
-        .bio-separator {
-            width: 100%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 20px 0;
-            opacity: 1 !important;
         }
 
         .profile-footer {
@@ -523,7 +368,6 @@
             transform: scale(1.4) rotateY(15deg);
         }
 
-        /* --- DISCORD TOOLTIP CSS --- */
         .discord-wrapper {
             position: relative;
             display: inline-flex;
@@ -534,16 +378,16 @@
 
         .discord-wrapper .tooltip {
             position: absolute;
-            bottom: 120%; 
+            bottom: 120%;
             left: 50%;
             transform: translateX(-50%);
-            background: #5865F2; 
+            background: #5865F2;
             color: white;
             padding: 6px 10px;
             border-radius: 6px;
             font-size: 12px;
             font-weight: bold;
-            font-family: 'Courier New', monospace; 
+            font-family: 'Courier New', monospace;
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
@@ -566,11 +410,9 @@
         .discord-wrapper:hover .tooltip {
             opacity: 1;
             visibility: visible;
-            bottom: 140%; 
+            bottom: 140%;
         }
-        /* --- END DISCORD CSS --- */
 
-        
         #skills-block {
             position: fixed;
             top: 50%;
@@ -641,7 +483,6 @@
             background: linear-gradient(90deg, #43e97b, #38f9d7);
         }
 
-        
         #results-button-container {
             position: fixed;
             top: 20px;
@@ -694,13 +535,11 @@
             border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
         }
 
-        
         .home-theme #profile-block,
         .home-theme #skills-block {
             border-color: rgba(200, 200, 200, 0.6);
         }
 
-        
         .glitch {
             animation: glitch 0.2s ease-in-out;
         }
@@ -744,7 +583,6 @@
             }
         }
 
-        
         .cursor-trail {
             position: fixed;
             pointer-events: none;
@@ -761,7 +599,6 @@
             transition: opacity 0.3s ease;
         }
 
-        
         #start-screen {
             position: fixed;
             top: 0;
@@ -777,16 +614,10 @@
             cursor: pointer;
         }
 
-        #start-text {
-            font-family: 'Courier New', monospace;
-            font-size: 24px;
-            color: #fff;
-            text-align: center;
-        }
+        #start-text { font-family: 'Special Elite', var(--mono); font-weight: 400; font-size: 26px; letter-spacing: .06em; text-transform: none; color: #fff; }
 
-        
         @media (max-width: 430px) {
-            
+
             #profile-block, #skills-block {
                 width: 90vw;
                 max-width: 350px;
@@ -795,64 +626,6 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-            }
-
-            .profile-header {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .profile-container {
-                width: 120px;
-                height: 120px;
-            }
-
-            .profile-picture {
-                width: 120px;
-                height: 120px;
-            }
-
-            .profile-info {
-                align-items: center;
-                text-align: center;
-            }
-
-            .name-and-badges {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
-
-            #profile-name {
-                font-size: 24px;
-                letter-spacing: 2px;
-            }
-
-            .badge-group {
-                justify-content: center;
-                gap: 6px;
-            }
-
-            .badge {
-                width: 18px;
-                height: 18px;
-            }
-
-            .badge-container .tooltip {
-                width: 100px;
-                font-size: 12px;
-                margin-left: -50px;
-                bottom: 110%;
-            }
-
-            #profile-bio {
-                font-size: 14px;
-                line-height: 1.4;
-            }
-
-            .bio-separator {
-                margin: 15px 0;
             }
 
             .social-links {
@@ -897,7 +670,6 @@
                 font-size: 14px;
             }
 
-            
             .controls {
                 bottom: 20px;
                 gap: 8px;
@@ -910,7 +682,6 @@
                 font-size: 12px;
             }
 
-            
             .top-controls {
                 top: 10px;
                 left: 10px;
@@ -937,7 +708,6 @@
                 height: 10px;
             }
 
-            
             #results-button-container {
                 top: 10px;
             }
@@ -953,20 +723,150 @@
                 padding: 6px 10px;
             }
 
-            
             #start-text {
                 font-size: 18px;
                 padding: 0 20px;
             }
         }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Retro+Gaming&display=swap" rel="stylesheet">
+</style>
+    <style>
+
+        :root {
+            --serif: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+            --mono: 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        #background { filter: grayscale(1) contrast(1.2) brightness(.7); }
+        .custom-cursor { filter: grayscale(1); }
+
+        .ghost-word {
+            position: absolute; inset: 0; z-index: 5; pointer-events: none;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--serif); font-style: italic; line-height: 1;
+            font-size: 44vw; color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,.15);
+            user-select: none; will-change: transform;
+        }
+        .torch {
+            position: absolute; inset: 0; z-index: 4; pointer-events: none;
+            --mx: 50%; --my: 40%;
+            background: radial-gradient(circle 380px at var(--mx) var(--my),
+                rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.93) 100%);
+        }
+
+        #profile-block, #skills-block {
+            background: rgba(0, 0, 0, 0.38) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 0 !important;
+            border-radius: 36px;
+            box-shadow: var(--sx, 0px) var(--sy, 40px) 90px rgba(0,0,0,.78);
+        }
+        #profile-block::before, #skills-block::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+            background: radial-gradient(300px circle at var(--bx, 50%) var(--by, 0%),
+                rgba(255,255,255,.95), rgba(255,255,255,.09) 65%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+                    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            pointer-events: none;
+        }
+
+        .social-links { display: flex; gap: 18px; justify-content: center; width: 100%; margin: 0; }
+        .social-icon {
+            box-sizing: border-box; width: 56px; height: 56px; padding: 14px;
+            border: 1px solid rgba(255,255,255,.18); border-radius: 50%;
+            filter: grayscale(1); opacity: .6 !important; transition: all .3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px); opacity: 1 !important;
+            border-color: rgba(255,255,255,.85); background: rgba(255,255,255,.1); filter: grayscale(1);
+        }
+
+        .discord-wrapper .tooltip { background: #fff !important; color: #000; border-radius: 999px; padding: 6px 14px; font-family: var(--mono); font-size: 12px; }
+        .discord-wrapper .tooltip::after { border-color: #fff transparent transparent transparent; }
+
+        #roblox-widget { background: none; border: 0; border-radius: 0; padding: 4px 0; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
+        .roblox-avatar-wrapper { border-radius: 50%; border: 1px solid rgba(255,255,255,.18); }
+        #roblox-avatar { filter: grayscale(1) contrast(1.1); }
+        .roblox-display-name { font-family: var(--serif); font-style: italic; font-size: 24px; font-weight: 400; }
+        .roblox-username, .roblox-description, .roblox-logo { font-family: var(--mono); font-weight: 300; }
+        .roblox-view-button {
+            background: transparent; color: #fff; border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
+            font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: .08em; text-transform: lowercase;
+            padding: 7px 18px; transition: all .3s ease;
+        }
+        .roblox-view-button:hover { background: #fff; color: #000; transform: none; }
+
+        .visitor-counter { background: none; border: 0; border-radius: 999px; font-family: var(--mono); color: rgba(255,255,255,.5); }
+        .top-controls { background: rgba(0,0,0,.4); border-radius: 999px; }
+        .controls { border-radius: 999px; }
+        #results-theme { border-radius: 999px; background: rgba(0,0,0,.4); border-color: rgba(255,255,255,.25); font-family: var(--mono); letter-spacing: .1em; text-transform: lowercase; }
+        #results-hint { border-radius: 14px; }
+        .badge-container .tooltip, .visitor-counter .tooltip { border-radius: 10px; }
+
+        .skills-title { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 40px; letter-spacing: 0; text-transform: none; }
+        .skill-name { font-family: var(--mono); font-weight: 300; }
+        .skill-bar-container { height: 3px; border-radius: 999px; background: rgba(255,255,255,.12); }
+        .skill-bar { border-radius: 999px; }
+        #python-bar, #cpp-bar, #csharp-bar { background: #fff; }
+
+        .cursor-trail-dot { border-radius: 50%; background-color: rgba(255,255,255,.7); }
+        #start-screen { background: transparent !important; backdrop-filter: none !important; z-index: 9995 !important; }
+        :root { --ix: 50%; --iy: 50%; }
+        .intro {
+            position: fixed; inset: 0; z-index: 9990; pointer-events: none; --ir: -100px;
+            background: radial-gradient(circle 260px at var(--ix) var(--iy), rgba(255,255,255,.09), transparent 70%), #000;
+            -webkit-mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent calc(var(--ir) - 70px), #000 var(--ir));
+                    mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent calc(var(--ir) - 70px), #000 var(--ir));
+        }
+        .intro-shade {
+            position: fixed; inset: 0; z-index: 9996; pointer-events: none;
+            background: radial-gradient(circle 300px at var(--ix) var(--iy), rgba(0,0,0,0) 0%, rgba(0,0,0,.4) 42%, rgba(0,0,0,.98) 100%);
+        }
+        .bio-separator { width: 100%; height: 1px; flex-shrink: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); }
+
+        @media (max-width: 430px) {
+            #profile-block, #skills-block { border-radius: 26px; }
+            .ghost-word { font-size: 70vw; }
+        }
+</style>
+    <style>
+
+        #profile-block, #skills-block { width: min(580px, 92vw) !important; min-height: 0; margin: 0; }
+        #profile-block { padding: 40px 36px 26px; gap: 24px; align-items: center; text-align: center; }
+        #skills-block { padding: 36px; }
+        .social-links { justify-content: center; }
+        #roblox-widget { width: 100%; justify-content: center; text-align: left; }
+        .profile-footer { align-items: center; }
+        .visitor-counter { align-self: center; margin: 0 auto; width: auto; }
+
+        .whispers { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+        .whispers span {
+            position: absolute; font-family: var(--mono); font-weight: 300; font-size: 12px;
+            letter-spacing: .28em; color: #fff; white-space: nowrap; opacity: 0; will-change: opacity, filter;
+        }
+        .dust { position: absolute; inset: 0; z-index: 5; pointer-events: none; width: 100%; height: 100%; }
+        .torch { background: radial-gradient(circle var(--r, 380px) at var(--mx) var(--my),
+                rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.93) 100%); }
+
+        @media (max-width: 430px) {
+            #profile-block { padding: 34px 22px 22px; }
+            .whispers span { font-size: 10px; letter-spacing: .22em; }
+            .social-icon { width: 48px; height: 48px; padding: 12px; }
+            .social-links { gap: 14px; }
+            #start-text { font-size: 18px; letter-spacing: .04em; }
+        }
+</style>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400&family=Special+Elite&family=Retro+Gaming&display=swap" rel="stylesheet">
 </head>
 <body class="home-theme" onload="initMedia()">
     
     <div class="custom-cursor"></div>
 
     
+    <div class="intro" aria-hidden="true"></div>
+    <div class="intro-shade" aria-hidden="true"></div>
     <div id="start-screen">
         <div id="start-text"></div>
     </div>
@@ -977,6 +877,23 @@
             <source src="assets/background.mp4" type="video/mp4">
         </video>
 
+        <div class="ghost-word" aria-hidden="true">snor</div>
+        <div class="torch"></div>
+
+        <div class="whispers" aria-hidden="true">
+            <span style="left:6%;top:12%">still here</span>
+            <span style="right:7%;top:9%">03:17</span>
+            <span style="left:9%;top:34%">not everything is lit</span>
+            <span style="right:6%;top:30%">keep looking</span>
+            <span style="left:5%;top:58%">you came back</span>
+            <span style="right:8%;top:56%">who left the light on</span>
+            <span style="left:12%;top:80%">it's quiet here</span>
+            <span style="right:9%;top:84%">behind you</span>
+            <span data-fixed style="left:44%;top:6%">&middot;</span>
+            <span data-fixed style="left:46%;top:93%">&mdash; snor</span>
+        </div>
+        <canvas class="dust" aria-hidden="true"></canvas>
+
         
         <div class="glitch-overlay"></div>
         <div id="hacker-overlay" class="hidden">
@@ -986,55 +903,7 @@
             
         </div>
 
-
         <div id="profile-block">
-            <div class="profile-header">
-                <div class="profile-container">
-                    <img src="assets/profile.gif" alt="Profile" class="profile-picture">
-                </div>
-                <div class="profile-info">
-                    <div class="name-and-badges">
-                        <div id="profile-name">snor</div>
-                        <div class="badge-box">
-                            <div class="badge-box-inner">
-                                <div class="badge-group">
-                                    <div class="badge-container">
-                                        <img src="assets/owner.gif" alt="Owner" class="badge">
-                                        <span class="tooltip">Owner</span>
-                                    </div>
-                                    <div class="badge-container">
-                                        <img src="assets/verified.gif" alt="Verified" class="badge">
-                                        <span class="tooltip">Verified</span>
-                                    </div>
-                                    <div class="badge-container">
-                                        <img src="assets/rule_maker.gif" alt="Rule Maker" class="badge">
-                                        <span class="tooltip">Rule Maker</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="profile-bio"></div>
-                    <div class="social-links">
-                        <div class="discord-wrapper" id="discord-copy-btn">
-                            <span class="tooltip" id="discord-tooltip">swnor</span>
-                            <img src="assets/discord.png" alt="Discord" class="social-icon">
-                        </div>
-                        <a href="https://onlyfans.com/chrissalvatore" target="_blank">
-                            <img src="assets/github.png" alt="OnlyFans" class="social-icon">
-                        </a>
-                        <a href="https://fbi.icu" target="_blank">
-                            <img src="assets/youtube.png" alt="Fbi" class="social-icon">
-                        </a>
-                        <a href="https://www.tiktok.com/@vxvxvxvxvxvxvxvxvvxvxv2" target="_blank">
-                            <img src="assets/tiktok.png" alt="TikTok" class="social-icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bio-separator"></div>
-
             <div id="roblox-widget">
                 <div class="roblox-avatar-wrapper">
                     <img
@@ -1058,6 +927,24 @@
                 </div>
             </div>
 
+            <div class="bio-separator"></div>
+
+            <div class="social-links">
+                <div class="discord-wrapper" id="discord-copy-btn">
+                    <span class="tooltip" id="discord-tooltip">swnor</span>
+                    <img src="assets/discord.png" alt="Discord" class="social-icon">
+                </div>
+                <a href="https://onlyfans.com/chrissalvatore" target="_blank">
+                    <img src="assets/github.png" alt="OnlyFans" class="social-icon">
+                </a>
+                <a href="https://shhh.wtf" target="_blank">
+                    <img src="assets/youtube.png" alt="Fbi" class="social-icon">
+                </a>
+                <a href="https://www.tiktok.com/@vxvxvxvxvxvxvxvxvvxvxv2" target="_blank">
+                    <img src="assets/tiktok.png" alt="TikTok" class="social-icon">
+                </a>
+            </div>
+
             <div class="profile-footer">
                 <div class="visitor-counter">
                     <svg class="visitor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1069,7 +956,6 @@
                 </div>
             </div>
         </div>
-
 
         <div id="skills-block" class="hidden">
             <h2 class="skills-title">Programming Skills</h2>
@@ -1105,12 +991,10 @@
             </div>
         </div>
 
-
         <div id="results-button-container" class="hidden">
             <button id="results-theme">View Results</button>
             <div id="results-hint" class="hidden">Click again to return to profile</div>
         </div>
-
 
         <div class="top-controls">
             <div class="volume-control">
@@ -1122,13 +1006,143 @@
         </div>
     </div>
 
-
     <audio id="background-music" loop>
         <source src="assets/background_music.mp3" type="audio/mp3">
     </audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-
     <script src="script.js"></script>
+    <script>
+
+    (function () {
+        var torch = document.querySelector('.torch'), ghost = document.querySelector('.ghost-word');
+        var cv = document.querySelector('.dust'), ctx = cv && cv.getContext('2d');
+        var spans = [].slice.call(document.querySelectorAll('.whispers span'));
+        var plate = document.getElementById('profile-block'), skills = document.getElementById('skills-block');
+                if (!torch) return;
+
+        var pool = ['still here', '03:17', 'not everything is lit', 'keep looking', 'you came back',
+            'who left the light on', "it's quiet here", 'behind you', 'check the corners', 'this room has no door',
+            'the light is yours', 'nothing moved', "you're early", 'wait', 'listen', 'almost', 'stay in the light',
+            '11:11', 'it was already open', 'left of center', 'look away', 'so close', 'not yet'];
+        var vis = spans.map(function () { return false; });
+
+        var W, H, dpr = Math.min(window.devicePixelRatio || 1, 2), centers = [];
+        function center(s) { var r = s.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }
+        function measure() {
+            W = innerWidth; H = innerHeight;
+            if (cv) { cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+            centers = spans.map(center);
+        }
+        measure(); addEventListener('resize', measure); addEventListener('load', measure);
+        function pick() {
+            var shown = spans.map(function (s) { return s.textContent; }), t, n = 0;
+            do { t = pool[Math.floor(Math.random() * pool.length)]; n++; } while (shown.indexOf(t) > -1 && n < 20);
+            return t;
+        }
+
+        var dust = [];
+        for (var i = 0; i < 90; i++) dust.push({ x: Math.random(), y: Math.random(), r: .5 + Math.random() * 1.4, a: .3 + Math.random() * .7, vx: (Math.random() - .5) * .00002, vy: -(.00001 + Math.random() * .00003) });
+
+        var tx = innerWidth / 2, ty = innerHeight * .4, x = tx, y = ty, last = 0, flare = 0, rings = [];
+        addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; last = performance.now(); });
+        addEventListener('pointerdown', function (e) {
+            flare = 1; rings.push({ x: e.clientX, y: e.clientY, t0: performance.now() });
+            if (rings.length > 6) rings.shift();
+        });
+        function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+        function frame(t) {
+            if (performance.now() - last > 4000) {
+                tx = W / 2 + Math.cos(t / 2600) * W * .28;
+                ty = H / 2 + Math.sin(t / 3300) * H * .25;
+            }
+            x += (tx - x) * .08; y += (ty - y) * .08;
+            flare *= .94;
+            var R = 380 + Math.sin(t / 1400) * 14 + flare * 420;
+
+            torch.style.setProperty('--mx', x + 'px'); torch.style.setProperty('--my', y + 'px'); torch.style.setProperty('--r', R + 'px');
+            if (ghost) ghost.style.transform = 'translate(' + (x - W / 2) * -.025 + 'px,' + (y - H / 2) * -.025 + 'px)';
+
+            for (var k = 0; k < spans.length; k++) {
+                var dx = centers[k][0] - x, dy = centers[k][1] - y, d = Math.sqrt(dx * dx + dy * dy);
+                var o = Math.max(0, 1 - d / (R * .8)); o = o * o;
+                spans[k].style.opacity = o * .85;
+                spans[k].style.filter = 'blur(' + ((1 - o) * 3).toFixed(1) + 'px)';
+                if (!spans[k].hasAttribute('data-fixed')) {
+                    if (o > .08) vis[k] = true;
+                    else if (o < .01 && vis[k]) { vis[k] = false; spans[k].textContent = pick(); centers[k] = center(spans[k]); }
+                }
+            }
+
+            if (ctx) {
+                ctx.clearRect(0, 0, W, H);
+                for (var j = 0; j < dust.length; j++) {
+                    var p = dust[j];
+                    p.x += p.vx * 16; p.y += p.vy * 16;
+                    if (p.y < -.02) { p.y = 1.02; p.x = Math.random(); }
+                    if (p.x < -.02) p.x = 1.02; if (p.x > 1.02) p.x = -.02;
+                    var px = p.x * W, py = p.y * H, ddx = px - x, ddy = py - y, dd = Math.sqrt(ddx * ddx + ddy * ddy);
+                    var al = Math.max(0, 1 - dd / R) * p.a;
+                    if (al > .01) { ctx.fillStyle = 'rgba(255,255,255,' + al.toFixed(3) + ')'; ctx.beginPath(); ctx.arc(px, py, p.r, 0, 6.2832); ctx.fill(); }
+                }
+                var now = performance.now();
+                rings = rings.filter(function (r) { return now - r.t0 < 1500; });
+                rings.forEach(function (r) {
+                    var a = (now - r.t0) / 1500, e = 1 - Math.pow(1 - a, 3);
+                    ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - a) * .45).toFixed(3) + ')'; ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.arc(r.x, r.y, e * 560, 0, 6.2832); ctx.stroke();
+                });
+            }
+
+            [plate, skills].forEach(function (pl) {
+                if (pl && pl.offsetParent !== null) {
+                    var r = pl.getBoundingClientRect();
+                    pl.style.setProperty('--bx', (x - r.left) + 'px'); pl.style.setProperty('--by', (y - r.top) + 'px');
+
+                    var vx = r.left + r.width / 2 - x, vy = r.top + r.height / 2 - y;
+                    pl.style.setProperty('--sx', clamp(vx * .12, -80, 80) + 'px');
+                    pl.style.setProperty('--sy', clamp(vy * .12, -80, 80) + 'px');
+                }
+            });
+
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    })();
+</script>
+    <script>
+    (function () {
+        var screen = document.getElementById('start-screen'), intro = document.querySelector('.intro'), shade = document.querySelector('.intro-shade');
+        if (!screen || !intro) return;
+        var root = document.documentElement, W = innerWidth, H = innerHeight;
+        var tx = W / 2, ty = H / 2, x = tx, y = ty, running = true, opened = false;
+        screen.addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; });
+        function follow() {
+            if (!running) return;
+            x += (tx - x) * .1; y += (ty - y) * .1;
+            root.style.setProperty('--ix', x + 'px'); root.style.setProperty('--iy', y + 'px');
+            requestAnimationFrame(follow);
+        }
+        follow();
+        screen.addEventListener('pointerdown', function (e) {
+            if (opened) return;
+            opened = true; running = false;
+            if (shade) shade.remove();
+            var cx = e.clientX, cy = e.clientY;
+            var max = Math.sqrt(Math.pow(Math.max(cx, W - cx), 2) + Math.pow(Math.max(cy, H - cy), 2)) + 120;
+            var t0 = performance.now(), dur = 1400;
+            intro.style.background = '#000';
+            intro.style.setProperty('--cx', cx + 'px'); intro.style.setProperty('--cy', cy + 'px');
+            function step(now) {
+                var p = Math.min(1, (now - t0) / dur);
+                var e3 = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+                intro.style.setProperty('--ir', (e3 * max) + 'px');
+                if (p < 1) requestAnimationFrame(step); else intro.remove();
+            }
+            requestAnimationFrame(step);
+        });
+    })();
+    </script>
 </body>
 </html>
