@@ -9,9 +9,8 @@ function initMedia() {
     return;
   }
   backgroundMusic.volume = 0.3;
-  backgroundVideo.muted = true; 
+  backgroundVideo.muted = true;
 
-  
   backgroundVideo.play().catch(err => {
     console.error("Failed to play background video:", err);
   });
@@ -20,8 +19,6 @@ function initMedia() {
 document.addEventListener('DOMContentLoaded', () => {
   const startScreen = document.getElementById('start-screen');
   const startText = document.getElementById('start-text');
-  const profileName = document.getElementById('profile-name');
-  const profileBio = document.getElementById('profile-bio');
   const visitorCount = document.getElementById('visitor-count');
   const backgroundMusic = document.getElementById('background-music');
   const resultsButton = document.getElementById('results-theme');
@@ -37,18 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const cppBar = document.getElementById('cpp-bar');
   const csharpBar = document.getElementById('csharp-bar');
   const resultsHint = document.getElementById('results-hint');
-  const profilePicture = document.querySelector('.profile-picture');
-  const profileContainer = document.querySelector('.profile-container');
   const socialIcons = document.querySelectorAll('.social-icon');
-  const badges = document.querySelectorAll('.badge');
 
-  
   const cursor = document.querySelector('.custom-cursor');
   const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
   if (isTouchDevice) {
     document.body.classList.add('touch-device');
-    
+
     document.addEventListener('touchstart', (e) => {
       const touch = e.touches[0];
       cursor.style.left = touch.clientX + 'px';
@@ -64,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('touchend', () => {
-      cursor.style.display = 'none'; 
+      cursor.style.display = 'none';
     });
   } else {
 
@@ -83,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   const startMessage = "Click here to see more...";
   let startTextContent = '';
   let startIndex = 0;
@@ -98,12 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeWriterStart, 100);
   }
 
-
   setInterval(() => {
     startCursorVisible = !startCursorVisible;
     startText.textContent = startTextContent + (startCursorVisible ? '|' : ' ');
   }, 500);
-
 
   function initializeVisitorCounter() {
     let totalVisitors = localStorage.getItem('totalVisitorCount');
@@ -124,9 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     visitorCount.textContent = totalVisitors.toLocaleString();
   }
 
-
   initializeVisitorCounter();
-
 
   startScreen.addEventListener('click', () => {
     startScreen.classList.add('hidden');
@@ -139,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { opacity: 0, y: -50 },
       { opacity: 1, y: 0, duration: 1, ease: 'power2.out', onComplete: () => {
         profileBlock.classList.add('profile-appear');
-        profileContainer.classList.add('orbit');
       }}
     );
     if (!isTouchDevice) {
@@ -154,8 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Failed to initialize cursor trail effect:", err);
       }
     }
-    typeWriterName();
-    typeWriterBio();
   });
 
   startScreen.addEventListener('touchstart', (e) => {
@@ -170,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { opacity: 0, y: -50 },
       { opacity: 1, y: 0, duration: 1, ease: 'power2.out', onComplete: () => {
         profileBlock.classList.add('profile-appear');
-        profileContainer.classList.add('orbit');
       }}
     );
     if (!isTouchDevice) {
@@ -185,97 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Failed to initialize cursor trail effect:", err);
       }
     }
-    typeWriterName();
-    typeWriterBio();
   });
-
-
-  const name = "snor";
-  let nameText = '';
-  let nameIndex = 0;
-  let isNameDeleting = false;
-  let nameCursorVisible = true;
-
-  function typeWriterName() {
-    if (!isNameDeleting && nameIndex < name.length) {
-      nameText = name.slice(0, nameIndex + 1);
-      nameIndex++;
-    } else if (isNameDeleting && nameIndex > 0) {
-      nameText = name.slice(0, nameIndex - 1);
-      nameIndex--;
-    } else if (nameIndex === name.length) {
-      isNameDeleting = true;
-      setTimeout(typeWriterName, 10000);
-      return;
-    } else if (nameIndex === 0) {
-      isNameDeleting = false;
-    }
-    profileName.textContent = nameText + (nameCursorVisible ? '|' : ' ');
-    if (Math.random() < 0.1) {
-      profileName.classList.add('glitch');
-      setTimeout(() => profileName.classList.remove('glitch'), 200);
-    }
-    setTimeout(typeWriterName, isNameDeleting ? 150 : 300);
-  }
-
-  setInterval(() => {
-    nameCursorVisible = !nameCursorVisible;
-    profileName.textContent = nameText + (nameCursorVisible ? '|' : ' ');
-  }, 500);
-
-
-  const bioMessages = [
-    "Hi snor here lol",
-    "Took me a while to figure this out",
-    "Discord's hyper-criminal",
-    "I am very funny",
-    "Stop talking about me lmao",
-    "I'm a great person",
-    "A month of nitro would be nice",
-    "Roblox stop rate limiting me",
-    "I'm not paying for a proxy",
-    "Roblox egirl avatars 🤤",
-    "Pawsocks lowkey overrated",
-    "Most feared Basketball Zero baller",
-    "Static ahh website",
-    "Sucks to be you snor",
-    "Robux donation? 🥺",
-    "Ok Bye"
-  ];
-  let bioText = '';
-  let bioIndex = 0;
-  let bioMessageIndex = 0;
-  let isBioDeleting = false;
-  let bioCursorVisible = true;
-
-  function typeWriterBio() {
-    if (!isBioDeleting && bioIndex < bioMessages[bioMessageIndex].length) {
-      bioText = bioMessages[bioMessageIndex].slice(0, bioIndex + 1);
-      bioIndex++;
-    } else if (isBioDeleting && bioIndex > 0) {
-      bioText = bioMessages[bioMessageIndex].slice(0, bioIndex - 1);
-      bioIndex--;
-    } else if (bioIndex === bioMessages[bioMessageIndex].length) {
-      isBioDeleting = true;
-      setTimeout(typeWriterBio, 2000);
-      return;
-    } else if (bioIndex === 0 && isBioDeleting) {
-      isBioDeleting = false;
-      bioMessageIndex = (bioMessageIndex + 1) % bioMessages.length;
-    }
-    profileBio.textContent = bioText + (bioCursorVisible ? '|' : ' ');
-    if (Math.random() < 0.1) {
-      profileBio.classList.add('glitch');
-      setTimeout(() => profileBio.classList.remove('glitch'), 200);
-    }
-    setTimeout(typeWriterBio, isBioDeleting ? 75 : 150);
-  }
-
-  setInterval(() => {
-    bioCursorVisible = !bioCursorVisible;
-    profileBio.textContent = bioText + (bioCursorVisible ? '|' : ' ');
-  }, 500);
-
 
   let currentAudio = backgroundMusic;
   let isMuted = false;
@@ -304,14 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
     volumeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>`;
   });
 
-
-  // fixed initial transparency for profile/skills blocks
   const initialOpacity = 0.15;
   profileBlock.style.background = `rgba(0, 0, 0, ${initialOpacity})`;
   profileBlock.style.backdropFilter = `blur(${10 * initialOpacity}px)`;
   skillsBlock.style.background = `rgba(0, 0, 0, ${initialOpacity})`;
   skillsBlock.style.backdropFilter = `blur(${10 * initialOpacity}px)`;
-
 
   function handleTilt(e, element) {
     const rect = element.getBoundingClientRect();
@@ -389,41 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  profilePicture.addEventListener('mouseenter', () => {
-    glitchOverlay.style.opacity = '1';
-    setTimeout(() => {
-      glitchOverlay.style.opacity = '0';
-    }, 500);
-  });
-
-
-  profilePicture.addEventListener('click', () => {
-    profileContainer.classList.remove('fast-orbit');
-    profileContainer.classList.remove('orbit');
-    void profileContainer.offsetWidth;
-    profileContainer.classList.add('fast-orbit');
-    setTimeout(() => {
-      profileContainer.classList.remove('fast-orbit');
-      void profileContainer.offsetWidth;
-      profileContainer.classList.add('orbit');
-    }, 500);
-  });
-
-  profilePicture.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    profileContainer.classList.remove('fast-orbit');
-    profileContainer.classList.remove('orbit');
-    void profileContainer.offsetWidth;
-    profileContainer.classList.add('fast-orbit');
-    setTimeout(() => {
-      profileContainer.classList.remove('fast-orbit');
-      void profileContainer.offsetWidth;
-      profileContainer.classList.add('orbit');
-    }, 500);
-  });
-
- 
   let isShowingSkills = false;
   resultsButton.addEventListener('click', () => {
     if (!isShowingSkills) {
@@ -508,37 +364,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- DISCORD COPY LOGIC ---
   const discordCopyBtn = document.getElementById('discord-copy-btn');
   const discordTooltip = document.getElementById('discord-tooltip');
 
   if (discordCopyBtn && discordTooltip) {
     discordCopyBtn.addEventListener('click', (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
       navigator.clipboard.writeText('swnor').then(() => {
-        // Change text and color on successful copy
+
         discordTooltip.textContent = 'Copied!';
-        discordTooltip.style.backgroundColor = '#3ba55c'; 
-        
-        // Change it back after 2 seconds
+        discordTooltip.style.backgroundColor = '#3ba55c';
+
         setTimeout(() => {
           discordTooltip.textContent = 'swnor';
-          discordTooltip.style.backgroundColor = '#5865F2'; 
+          discordTooltip.style.backgroundColor = '#5865F2';
         }, 2000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
       });
     });
   }
-  // --- END DISCORD COPY LOGIC ---
 
   typeWriterStart();
-// --- CHANGING TAB TITLE LOGIC ---
+
   const tabTitles = [
-    "s", 
-    "sn", 
-    "sno", 
-    "snor", 
+    "s",
+    "sn",
+    "sno",
+    "snor",
     "snor's",
     "snor's P",
     "snor's Pr",
@@ -547,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "snor's Profi",
     "snor's Profil",
     "snor's Profile",
-    "snor's Profile", 
+    "snor's Profile",
     "snor's Profil",
     "snor's Profi",
     "snor's Prof",
@@ -563,21 +416,19 @@ document.addEventListener('DOMContentLoaded', () => {
     "_"
   ];
   let titleIndex = 0;
-  
+
   setInterval(() => {
     document.title = tabTitles[titleIndex];
     titleIndex = (titleIndex + 1) % tabTitles.length;
-  }, 200); // 600ms = changes a little over once per second. Tweak this number to make it faster/slower!
-  // --- END CHANGING TAB TITLE LOGIC ---
-  // --- ROBLOX VIEW PROFILE LOGIC ---
+  }, 200);
+
   const robloxButton = document.getElementById('roblox-view-button');
 
   if (robloxButton) {
     robloxButton.addEventListener('click', () => {
-      // Replace this URL with your actual Roblox profile link!
-      // The '_blank' part makes it open cleanly in a new tab so they don't lose your site.
-      window.open('https://www.roblox.com/users/332058252/profile', '_blank'); 
+
+      window.open('https://www.roblox.com/users/332058252/profile', '_blank');
     });
   }
-  // --- END ROBLOX VIEW PROFILE LOGIC ---
+
 });
